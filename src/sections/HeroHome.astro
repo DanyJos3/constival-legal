@@ -8,6 +8,7 @@ import { Image } from 'astro:assets';
 import InfiniteSlider from '../components/InfiniteSlider.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import heroBg from '../assets/hero-bg.png';
+import { ctaButton } from '../data/services';
 
 // Servicios para el slider
 const services = [
@@ -117,10 +118,11 @@ const benefits = [
 
         <!-- CTA Button -->
         <div class="mx-auto my-10 max-w-sm lg:my-12 lg:ml-0 lg:mr-auto">
+          <!-- href="https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20constituir%20mi%20SAS" -->
+          <!-- target="_blank" -->
+          <!-- rel="noopener noreferrer" -->
           <a 
-            href="https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20constituir%20mi%20SAS"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={ctaButton.href}
             class="btn btn-primary btn-lg btn-pill btn-icon-right btn-glow"
           >
             Crear mi SAS ahora
