@@ -1,0 +1,98 @@
+---
+/**
+ * InfiniteSlider - CSS-only infinite scroll animation
+ * No JavaScript required, pure CSS animation for maximum performance
+ */
+interface Props {
+  speed?: number; // Duration in seconds
+  gap?: number;   // Gap in pixels
+  direction?: 'left' | 'right';
+  pauseOnHover?: boolean;
+  class?: string;
+}
+
+const { 
+  speed = 30, 
+  gap = 24, 
+  direction = 'left',
+  pauseOnHover = true,
+  class: className = '' 
+} = Astro.props;
+
+const animationDirection = direction === 'left' ? 'normal' : 'reverse';
+---
+
+<div 
+  class:list={[
+    "infinite-slider overflow-hidden",
+    className
+  ]}
+  style={`--slider-gap: ${gap}px; --slider-speed: ${speed}s; --slider-direction: ${animationDirection};`}
+  data-pause-hover={pauseOnHover}
+>
+  <div class="slider-track">
+    <div class="slider-content">
+      <slot />
+    </div>
+    <div class="slider-content" aria-hidden="true">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .infinite-slider {
+    --slider-gap: 24px;
+    --slider-speed: 30s;
+    --slider-direction: normal;
+    
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
+
+  .slider-track {
+    display: flex;
+    width: max-content;
+    animation: slide var(--slider-speed) linear infinite;
+    animation-direction: var(--slider-direction);
+  }
+
+  .slider-content {
+    display: flex;
+    gap: var(--slider-gap);
+    padding-right: var(--slider-gap);
+  }
+
+  /* Pause on hover when enabled */
+  [data-pause-hover="true"]:hover .slider-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .slider-track {
+      animation-duration: 60s;
+    }
+  }
+</style>

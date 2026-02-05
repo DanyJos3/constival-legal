@@ -1,0 +1,167 @@
+---
+/**
+ * HeroHome - Hero principal con slider de servicios
+ * Solo para la página de inicio (index.astro)
+ * Estilos basados en sas-facil-front
+ */
+import InfiniteSlider from '../components/InfiniteSlider.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+// Servicios para el slider
+const services = [
+  {
+    icon: 'building-2',
+    title: 'Constituciones de empresas (SAS)',
+    description: 'Nos encargamos de todo el proceso legal para que tu empresa quede constituida correctamente.',
+    variant: 'dark' as const
+  },
+  {
+    icon: 'badge-check',
+    title: 'Registro de Marca',
+    description: 'Protege tu identidad comercial ante el SENADI.',
+    variant: 'medium' as const
+  },
+  {
+    icon: 'scale',
+    title: 'Asesoría Legal Especializada',
+    description: 'Te acompañamos en todo el proceso para evitar errores legales y retrasos.',
+    variant: 'light' as const
+  },
+  {
+    icon: 'file-pen',
+    title: 'Reforma de estatutos',
+    description: 'Documentos personalizados para tu empresa.',
+    variant: 'dark' as const
+  },
+  {
+    icon: 'arrow-left-right',
+    title: 'Transferencia de acciones',
+    description: 'Asesoría y gestión legal para la correcta cesión o venta de acciones.',
+    variant: 'medium' as const
+  },
+  {
+    icon: 'circle-x',
+    title: 'Disolución de empresas',
+    description: 'Acompañamiento legal para cerrar tu empresa de forma ordenada.',
+    variant: 'light' as const
+  },
+];
+
+// Beneficios mostrados bajo el CTA
+const benefits = [
+  'Proceso digital',
+  'Gestión sin intervención notarial',
+  'Asesoría legal especializada'
+];
+---
+
+<section class="min-h-screen flex items-center overflow-hidden relative" id="hero">
+  <!-- Background Image -->
+  <div class="absolute inset-0 -z-20">
+    <img 
+      src="/hero-bg.png" 
+      alt="" 
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+  
+  <!-- Gradient Overlay (matching sas-facil-front) -->
+  <div class="absolute inset-0 bg-gradient-to-b from-primary-dark/90 to-primary-medium/70 -z-10"></div>
+  
+  <!-- Decorative Glow -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+
+  <div class="relative mx-auto w-full max-w-7xl px-6 py-20">
+    <!-- Grid Layout: 1 col mobile, 2 cols desktop -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      
+      <!-- Left Side - Content -->
+      <div class="relative z-10 text-center lg:text-left">
+        
+        <!-- Badge (matching sas-facil-front style) -->
+        <a 
+          href="#servicios"
+          class="rounded-full mx-auto flex w-fit items-center gap-2 border border-white/20 bg-white/10 p-1 pr-3 lg:ml-0"
+        >
+          <span class="bg-accent text-primary-dark rounded-full px-2 py-1 text-sm font-medium">
+            Nuevo
+          </span>
+          <span class="text-sm text-white/80">
+            +500 empresas constituidas en Ecuador
+          </span>
+        </a>
+
+        <!-- Main Title (matching sas-facil-front sizes) -->
+        <h1 class="mt-10 text-balance text-4xl font-bold text-white md:text-5xl xl:text-7xl">
+          Constituye tu <span class="text-accent">SAS</span> en 3-5 días
+        </h1>
+        
+        <!-- Subtitle -->
+        <p class="mt-8 text-white/70 text-xl">
+          Nos encargamos de todo el proceso legal para que formalices tu empresa de manera rápida, segura y 100% online.
+        </p>
+
+        <!-- CTA Button -->
+        <div class="mx-auto my-10 max-w-sm lg:my-12 lg:ml-0 lg:mr-auto">
+          <a 
+            href="https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20constituir%20mi%20SAS"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full bg-accent border border-white/20 text-primary-dark px-6 py-3 font-medium hover:bg-accent-light transition-all duration-200"
+          >
+            <span class="text-lg">Crear mi SAS ahora</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Benefits List -->
+        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/60 lg:justify-start">
+          {benefits.map((benefit) => (
+            <li class="flex items-center gap-2">
+              <span class="size-1.5 rounded-full bg-accent"></span>
+              {benefit}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Right Side - Service Cards Slider -->
+      <div 
+        class="carousel overflow-hidden -mx-6 lg:mx-0 lg:absolute lg:right-0 lg:w-[60%] lg:top-1/2 lg:-translate-y-1/2"
+      >
+        <InfiniteSlider speed={40} gap={24} pauseOnHover={true}>
+          {services.map((service) => (
+            <ServiceCard 
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              variant={service.variant}
+            />
+          ))}
+        </InfiniteSlider>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Decorative glow animation */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(1.05);
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 4s ease-in-out infinite;
+  }
+</style>
