@@ -1,54 +1,68 @@
 @import "tailwindcss";
 
 /* ============================================
+   🎨 PALETA DE COLORES
+   
+   Cambia esta línea para cambiar toda la paleta:
+   - "./palettes/esmeralda.css"    (Verde-azulado - Original)
+   - "./palettes/ocean-blue.css"   (Azul corporativo)
+   - "./palettes/royal-purple.css" (Púrpura elegante)
+   ============================================ */
+@import "./palettes/esmeralda.css";
+
+/* ============================================
    CONSTIVAL - Design System Configuration
    Tailwind CSS 4 Theme Configuration
-   (Matching sas-facil-front styles)
    ============================================ */
 
 @theme {
   /* ============================================
-     🎨 PALETA BASE - Esmeralda
-     (Mismos valores que sas-facil-front)
+     Colores heredados de la paleta activa
+     (Estas referencias permiten que Tailwind use las variables)
      ============================================ */
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-medium: var(--color-primary-medium);
+  --color-primary-light: var(--color-primary-light);
   
-  /* Primary Colors - Dark Teal Palette */
-  --color-primary-dark: hsl(180 30% 8%);      /* #0D1A1A - Background/Nav */
-  --color-primary-medium: hsl(180 28% 15%);   /* #1B2F2F - Cards */
-  --color-primary-light: hsl(180 25% 22%);    /* Lighter variant for hover states */
+  --color-accent: var(--color-accent);
+  --color-accent-light: var(--color-accent-light);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-subtle: var(--color-accent-subtle);
   
-  /* Accent Colors - Teal/Cyan */
-  --color-accent: hsl(175 77% 45%);           /* #14B8A6 - Main Action */
-  --color-accent-light: hsl(175 84% 55%);     /* #2DD4BF - Hover */
-  --color-accent-dark: hsl(175 77% 35%);      /* #0D9488 - Active/Focus */
-  --color-accent-subtle: hsl(175 60% 20%);    /* Subtle background accent */
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: var(--color-text-inverse);
   
-  /* Text Colors */
-  --color-text-primary: hsl(0 0% 100%);       /* White text */
-  --color-text-secondary: hsl(0 0% 70%);      /* Muted text (matching dark mode) */
-  --color-text-muted: oklch(0.556 0 0);       /* Very muted text */
-  --color-text-inverse: hsl(180 30% 8%);      /* Dark text on light backgrounds */
+  --color-surface-dark: var(--color-surface-dark);
+  --color-surface-card: var(--color-surface-card);
+  --color-surface-elevated: var(--color-surface-elevated);
+  --color-surface-light: var(--color-surface-light);
+  --color-surface-gray: var(--color-surface-gray);
   
-  /* Surface Colors */
-  --color-surface-dark: hsl(180 30% 6%);      /* Darker than primary */
-  --color-surface-card: hsl(180 28% 12%);     /* Card backgrounds */
-  --color-surface-elevated: hsl(180 25% 18%); /* Elevated elements */
+  --color-text-dark: var(--color-text-dark);
+  --color-text-dark-secondary: var(--color-text-dark-secondary);
+  --color-text-dark-muted: var(--color-text-dark-muted);
   
-  /* Light Surface Colors (for contrast sections) */
-  --color-surface-light: hsl(0 0% 100%);      /* White */
-  --color-surface-gray: hsl(180 10% 96%);     /* Very light gray with teal tint */
-  --color-surface-cream: hsl(60 20% 97%);     /* Warm off-white */
+  --color-border-default: var(--color-border-default);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-border-accent: var(--color-border-accent);
+  --color-border-hover: var(--color-border-hover);
   
-  /* Text Colors for Light Backgrounds */
-  --color-text-dark: hsl(180 30% 10%);        /* Near black with teal tint */
-  --color-text-dark-secondary: hsl(180 10% 35%); /* Dark gray for paragraphs */
-  --color-text-dark-muted: hsl(180 10% 50%);  /* Medium gray for captions */
+  --color-accent-10: var(--color-accent-10);
+  --color-accent-15: var(--color-accent-15);
+  --color-accent-20: var(--color-accent-20);
+  --color-accent-25: var(--color-accent-25);
+  --color-accent-30: var(--color-accent-30);
+  --color-accent-40: var(--color-accent-40);
+  --color-accent-50: var(--color-accent-50);
   
-  /* Border Colors */
-  --color-border-default: hsl(0 0% 100% / 10%);
-  --color-border-subtle: hsl(0 0% 100% / 5%);
-  --color-border-accent: hsl(175 77% 45% / 0.3);
-  
+  --color-primary-dark-85: var(--color-primary-dark-85);
+  --color-primary-dark-95: var(--color-primary-dark-95);
+  --color-primary-medium-80: var(--color-primary-medium-80);
+  --color-primary-medium-85: var(--color-primary-medium-85);
+  --color-primary-medium-95: var(--color-primary-medium-95);
+
   /* Typography - Font Families (Outfit for everything) */
   --font-family-display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
   --font-family-body: 'Outfit', ui-sans-serif, system-ui, sans-serif;
@@ -70,8 +84,12 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.35), 0 4px 6px -4px rgb(0 0 0 / 0.25);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.3);
-  --shadow-glow: 0 0 40px -10px hsl(175 77% 45% / 0.4);
-  --shadow-glow-lg: 0 0 60px -15px hsl(175 77% 45% / 0.5);
+  --shadow-glow: 0 0 40px -10px var(--color-accent-40);
+  --shadow-glow-lg: 0 0 60px -15px var(--color-accent-50);
+  --shadow-glow-sm: 0 0 20px -5px var(--color-accent-30);
+  --shadow-glow-md: 0 0 30px -5px var(--color-accent-50);
+  --shadow-glow-card: 0 8px 30px -5px var(--color-accent-15);
+  --shadow-glow-card-hover: 0 4px 20px -5px var(--color-accent-15);
   
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -126,9 +144,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  font-size: 1rem;
   line-height: 1.625;
-  color: var(--color-text-secondary);
+  /* font-size controlado por clases de Tailwind */
 }
 
 a {
@@ -149,7 +166,7 @@ a:hover {
 
 /* Selection */
 ::selection {
-  background-color: hsl(175 77% 45% / 0.3);
+  background-color: var(--color-accent-30);
   color: var(--color-text-primary);
 }
 
@@ -179,7 +196,7 @@ a:hover {
 
 /* Glass Effect */
 .glass {
-  background: hsl(180 28% 15% / 0.8);
+  background: var(--color-primary-medium-80);
   backdrop-filter: blur(12px);
   border: 1px solid var(--color-border-subtle);
 }
@@ -197,70 +214,423 @@ a:hover {
   box-shadow: var(--shadow-glow);
 }
 
-/* Button Base */
+/* ============================================
+   BUTTON SYSTEM - UX Optimizado
+   Uso: .btn + .btn-{variant} + .btn-{size}
+   ============================================ */
+
+/* ==========================================
+   BASE BUTTON
+   ========================================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  font-family: var(--font-family-body);
+  font-family: inherit;
   font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-  border-radius: var(--radius-lg);
+  font-weight: 600;
+  line-height: 1.25;
+  border-radius: 0.75rem;
   cursor: pointer;
-  transition: all var(--transition-base);
   text-decoration: none;
-  border: none;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  
+  /* Transiciones suaves */
+  transition: 
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--color-accent-light);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ==========================================
+   VARIANTE: PRIMARY (Turquesa sólido)
+   El botón principal de acción
+   ========================================== */
 .btn-primary {
   background-color: var(--color-accent);
-  color: hsl(180 30% 8%); /* Forzado oscuro para contraste */
+  color: var(--color-text-inverse);
+  border-color: transparent;
 }
 
 .btn-primary:hover {
   background-color: var(--color-accent-light);
-  color: var(--color-text-inverse);
-  box-shadow: var(--shadow-glow);
+  color: var(--color-text-inverse); /* Mantener texto oscuro */
   transform: translateY(-1px);
+  box-shadow: var(--shadow-glow-md);
 }
 
 .btn-primary:active {
   background-color: var(--color-accent-dark);
+  color: var(--color-text-inverse); /* Mantener texto oscuro */
   transform: translateY(0);
+  box-shadow: none;
 }
 
-/* CTA Button Global - Fondo turquesa con texto oscuro */
-.cta-button {
-  color: hsl(180 30% 8%) !important;
-}
-
+/* ==========================================
+   VARIANTE: SECONDARY (Borde sobre oscuro)
+   Para acciones secundarias en fondos oscuros
+   ========================================== */
 .btn-secondary {
   background-color: transparent;
   color: var(--color-text-primary);
-  border: 1px solid var(--color-border-default);
+  border-color: var(--color-border-default);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-primary-medium);
+  background-color: var(--color-accent-10);
   border-color: var(--color-accent);
   color: var(--color-accent-light);
 }
 
+.btn-secondary:active {
+  background-color: var(--color-accent-10);
+}
+
+/* ==========================================
+   VARIANTE: OUTLINE (Borde visible)
+   Para fondos claros y oscuros
+   ========================================== */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-sm);
+}
+
+.btn-outline:active {
+  background-color: var(--color-accent-dark);
+  transform: translateY(0);
+}
+
+/* ==========================================
+   VARIANTE: GHOST (Solo texto)
+   Para acciones terciarias
+   ========================================== */
 .btn-ghost {
   background-color: transparent;
   color: var(--color-accent);
+  border-color: transparent;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .btn-ghost:hover {
-  background-color: hsl(175 77% 45% / 0.1);
+  background-color: var(--color-accent-10);
+  color: var(--color-accent-light);
+}
+
+.btn-ghost:active {
+  background-color: var(--color-accent-15);
+}
+
+/* ==========================================
+   VARIANTE: DARK (Sólido oscuro)
+   Para fondos claros
+   ========================================== */
+.btn-dark {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-primary);
+  border-color: transparent;
+}
+
+.btn-dark:hover {
+  background-color: var(--color-primary-medium);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-dark:active {
+  background-color: var(--color-surface-dark);
+  transform: translateY(0);
+}
+
+/* ==========================================
+   VARIANTE: LIGHT (Blanco sobre oscuro)
+   Para fondos muy oscuros
+   ========================================== */
+.btn-light {
+  background-color: var(--color-surface-light);
+  color: var(--color-text-inverse);
+  border-color: transparent;
+}
+
+.btn-light:hover {
+  background-color: var(--color-surface-gray);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-light:active {
+  background-color: #e5e7eb;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   VARIANTE: WHATSAPP (Verde WA)
+   Específico para CTAs de WhatsApp
+   ========================================== */
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn-whatsapp:hover {
+  background-color: #22c55e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px -2px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:active {
+  background-color: #16a34a;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   TAMAÑOS
+   ========================================== */
+.btn-xs {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  gap: 0.25rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  border-radius: 0.625rem;
+}
+
+.btn-md {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 0.875rem;
+}
+
+.btn-xl {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  border-radius: 1rem;
+}
+
+/* ==========================================
+   MODIFICADORES
+   ========================================== */
+
+/* Full width */
+.btn-block {
+  width: 100%;
+}
+
+/* Pill shape (muy redondeado) */
+.btn-pill {
+  border-radius: 9999px;
+}
+
+/* Con icono a la derecha */
+.btn-icon-right {
+  flex-direction: row;
+}
+
+.btn-icon-right svg,
+.btn-icon-right .btn-icon {
+  margin-left: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-icon-right:hover svg,
+.btn-icon-right:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+/* Con icono a la izquierda */
+.btn-icon-left svg,
+.btn-icon-left .btn-icon {
+  margin-right: 0.25rem;
+}
+
+/* Solo icono (cuadrado) */
+.btn-icon-only {
+  padding: 0.75rem;
+  aspect-ratio: 1;
+}
+
+.btn-icon-only.btn-sm {
+  padding: 0.5rem;
+}
+
+.btn-icon-only.btn-lg {
+  padding: 1rem;
+}
+
+/* ==========================================
+   EFECTOS ESPECIALES
+   ========================================== */
+
+/* Efecto glow pulsante (para CTAs principales) */
+.btn-glow {
+  animation: btn-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes btn-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(20, 184, 166, 0);
+  }
+}
+
+/* Efecto shine (brillo que pasa) */
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+/* ==========================================
+   GRUPOS DE BOTONES
+   ========================================== */
+.btn-group {
+  display: inline-flex;
+  gap: 0;
+}
+
+.btn-group .btn {
+  border-radius: 0;
+}
+
+.btn-group .btn:first-child {
+  border-radius: 0.75rem 0 0 0.75rem;
+}
+
+.btn-group .btn:last-child {
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.btn-group .btn:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   INTERACTIVE CARDS
+   Cards para Pricing, FAQ, etc.
+   ============================================ */
+
+/* Card base */
+.card-interactive {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.card-interactive:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* Card activo/seleccionado */
+.card-interactive.is-active,
+.card-interactive.is-selected {
+  background-color: var(--color-primary-medium);
+  border-color: var(--color-accent-50);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Badge popular (para pricing) */
+.badge-popular {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Icon container states */
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-elevated);
+  transition: background-color var(--transition-fast);
+}
+
+.icon-container.is-active {
+  background-color: var(--color-accent-20);
+}
+
+/* Icon colors */
+.icon-accent {
+  color: var(--color-accent);
+}
+
+.icon-muted {
+  color: var(--color-text-secondary);
+}
+
+/* Check icon for features */
+.check-icon {
+  color: var(--color-text-secondary);
+}
+
+.check-icon.is-active {
+  color: var(--color-accent);
+}
+
+/* Focus ring for dark backgrounds */
+.focus-ring-dark:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* Container */
@@ -314,10 +684,10 @@ a:hover {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px -5px hsl(175 77% 45% / 0.3);
+    box-shadow: var(--shadow-glow-sm);
   }
   50% {
-    box-shadow: 0 0 30px -5px hsl(175 77% 45% / 0.5);
+    box-shadow: var(--shadow-glow-md);
   }
 }
 

@@ -147,83 +147,83 @@ const iconPath = iconPaths[icon] || iconPaths['building-2'];
      VARIANT: DARK (verde muy oscuro)
      ======================================== */
   .service-card--dark {
-    background-color: rgba(13, 26, 26, 0.85);  /* primary-dark */
-    border-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--color-primary-dark-85);
+    border-color: var(--color-border-hover);
   }
   
   .service-card--dark:hover {
-    background-color: rgba(13, 26, 26, 0.95);
+    background-color: var(--color-primary-dark-95);
   }
   
   .service-card--dark .service-card__icon {
-    background-color: rgba(20, 184, 166, 0.3);  /* accent/30 */
+    background-color: var(--color-accent-30);
   }
   
   .service-card--dark .service-card__icon svg {
-    color: hsl(175 77% 45%);  /* accent */
+    color: var(--color-accent);
   }
   
   .service-card--dark .service-card__title {
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
   
   .service-card--dark .service-card__description {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-secondary);
   }
   
   /* ========================================
      VARIANT: MEDIUM (verde medio)
      ======================================== */
   .service-card--medium {
-    background-color: rgba(27, 47, 47, 0.85);  /* primary-medium */
-    border-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--color-primary-medium-85);
+    border-color: var(--color-border-hover);
   }
   
   .service-card--medium:hover {
-    background-color: rgba(27, 47, 47, 0.95);
+    background-color: var(--color-primary-medium-95);
   }
   
   .service-card--medium .service-card__icon {
-    background-color: rgba(20, 184, 166, 0.3);  /* accent/30 */
+    background-color: var(--color-accent-30);
   }
   
   .service-card--medium .service-card__icon svg {
-    color: hsl(175 77% 45%);  /* accent */
+    color: var(--color-accent);
   }
   
   .service-card--medium .service-card__title {
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
   
   .service-card--medium .service-card__description {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-secondary);
   }
   
   /* ========================================
      VARIANT: LIGHT (blanco)
      ======================================== */
   .service-card--light {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-color: #e5e7eb;  /* gray-200 */
+    background-color: hsl(0 0% 100% / 0.95);
+    border-color: hsl(0 0% 90%);
   }
   
   .service-card--light:hover {
-    background-color: #ffffff;
+    background-color: var(--color-surface-light);
   }
   
   .service-card--light .service-card__icon {
-    background-color: rgba(20, 184, 166, 0.2);  /* accent/20 */
+    background-color: var(--color-accent-20);
   }
   
   .service-card--light .service-card__icon svg {
-    color: hsl(175 77% 45%);  /* accent */
+    color: var(--color-accent);
   }
   
   .service-card--light .service-card__title {
-    color: #111827 !important;  /* gray-900 */
+    color: var(--color-text-dark) !important;
   }
   
   .service-card--light .service-card__description {
-    color: #4b5563 !important;  /* gray-600 */
+    color: var(--color-text-dark-secondary) !important;
   }
 </style>

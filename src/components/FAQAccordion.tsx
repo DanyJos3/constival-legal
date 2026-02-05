@@ -16,28 +16,19 @@ interface FAQItemProps {
 function FAQItem({ faq, isOpen, onToggle, index }: FAQItemProps) {
   return (
     <div 
-      className={`
-        border rounded-xl transition-all duration-300
-        ${isOpen 
-          ? 'bg-[hsl(180_28%_15%)] border-[hsl(175_77%_45%/0.3)] shadow-[0_0_30px_-10px_hsl(175_77%_45%/0.2)]' 
-          : 'bg-[hsl(180_28%_12%)] border-[hsl(0_0%_100%/0.1)] hover:border-[hsl(0_0%_100%/0.15)]'
-        }
-      `}
+      className={`card-interactive ${isOpen ? 'is-active' : ''}`}
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-start gap-4 p-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(175_77%_45%)] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(180_30%_8%)] rounded-xl"
+        className="focus-ring-dark w-full flex items-start gap-4 p-5 text-left rounded-xl"
         aria-expanded={isOpen}
       >
         {/* Icon */}
-        <div className={`
-          flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors
-          ${isOpen ? 'bg-[hsl(175_77%_45%/0.2)]' : 'bg-[hsl(180_25%_18%)]'}
-        `}>
+        <div className={`icon-container flex-shrink-0 ${isOpen ? 'is-active' : ''}`}>
           <MessageCircleQuestion 
-            className={`w-5 h-5 transition-colors ${isOpen ? 'text-[hsl(175_77%_45%)]' : 'text-white/50'}`} 
+            className={`w-5 h-5 transition-colors ${isOpen ? 'icon-accent' : 'icon-muted'}`} 
           />
         </div>
 
@@ -51,8 +42,8 @@ function FAQItem({ faq, isOpen, onToggle, index }: FAQItemProps) {
         {/* Chevron */}
         <ChevronDown 
           className={`
-            w-5 h-5 flex-shrink-0 text-white/50 transition-transform duration-300
-            ${isOpen ? 'rotate-180 text-[hsl(175_77%_45%)]' : ''}
+            w-5 h-5 flex-shrink-0 transition-transform duration-300
+            ${isOpen ? 'rotate-180 icon-accent' : 'icon-muted'}
           `}
         />
       </button>

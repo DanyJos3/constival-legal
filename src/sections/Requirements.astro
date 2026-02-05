@@ -100,15 +100,15 @@ const iconPaths: Record<string, string> = {
   .section-gray {
     padding-top: var(--spacing-section);
     padding-bottom: var(--spacing-section);
-    background-color: #f3f4f6; /* gray-100 */
+    background-color: var(--color-surface-gray);
   }
   
   .badge-accent {
     display: inline-block;
     padding: 0.375rem 1rem;
     border-radius: 9999px;
-    background-color: hsl(175 77% 45%);
-    color: hsl(180 30% 8%);
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
     font-size: 0.875rem;
     font-weight: 500;
     margin-bottom: 1rem;
@@ -118,42 +118,42 @@ const iconPaths: Record<string, string> = {
     padding: 0.125rem 0.5rem;
     font-size: 0.75rem;
     font-weight: 500;
-    background-color: hsl(175 77% 45%);
-    color: hsl(180 30% 8%);
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
     border-radius: 0.25rem;
   }
   
   .title-dark {
     font-size: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
     font-weight: 600;
-    color: #111827 !important; /* gray-900 forzado */
+    color: var(--color-text-dark) !important;
     margin-bottom: 1rem;
   }
   
   .subtitle-dark {
     font-size: 1.125rem;
-    color: #4b5563 !important; /* gray-600 forzado */
+    color: var(--color-text-dark-secondary) !important;
     line-height: 1.625;
   }
   
   .card-white {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb; /* gray-200 */
+    background-color: var(--color-surface-light);
+    border: 1px solid hsl(0 0% 90%);
     border-radius: 1rem;
     box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease;
   }
   
   .card-white:hover {
-    border-color: hsl(175 77% 45%);
-    box-shadow: 0 4px 20px -5px rgba(20, 184, 166, 0.15);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-glow-card-hover);
   }
   
   .icon-container {
     width: 3rem;
     height: 3rem;
     border-radius: 0.75rem;
-    background-color: rgba(20, 184, 166, 0.15);
+    background-color: var(--color-accent-15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,22 +161,22 @@ const iconPaths: Record<string, string> = {
   }
   
   .card-white:hover .icon-container {
-    background-color: rgba(20, 184, 166, 0.25);
+    background-color: var(--color-accent-25);
   }
   
   .card-title-sm {
     font-size: 1.125rem;
     font-weight: 600;
-    color: #111827 !important; /* gray-900 forzado */
+    color: var(--color-text-dark) !important;
   }
   
   .card-description-sm {
     font-size: 0.875rem;
-    color: #4b5563 !important; /* gray-600 forzado */
+    color: var(--color-text-dark-secondary) !important;
     line-height: 1.625;
   }
   
   .cta-button {
-    color: hsl(180 30% 8%) !important;
+    color: var(--color-text-inverse) !important;
   }
 </style>

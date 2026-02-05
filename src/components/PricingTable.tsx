@@ -15,11 +15,8 @@ export default function PricingTable({ plans }: PricingTableProps) {
         <div
           key={plan.id}
           className={`
-            relative flex flex-col rounded-2xl border transition-all duration-300 cursor-pointer
-            ${selectedPlan === plan.id 
-              ? 'bg-[hsl(180_28%_15%)] border-[hsl(175_77%_45%/0.5)] shadow-[0_0_40px_-10px_hsl(175_77%_45%/0.4)] scale-[1.02]' 
-              : 'bg-[hsl(180_28%_12%)] border-[hsl(0_0%_100%/0.1)] hover:border-[hsl(0_0%_100%/0.15)]'
-            }
+            card-interactive relative flex flex-col cursor-pointer
+            ${selectedPlan === plan.id ? 'is-active scale-[1.02]' : ''}
             ${plan.popular ? 'xl:-mt-4 xl:mb-4' : ''}
           `}
           onClick={() => setSelectedPlan(plan.id)}
@@ -28,7 +25,7 @@ export default function PricingTable({ plans }: PricingTableProps) {
           {/* Popular Badge */}
           {plan.popular && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[hsl(175_77%_45%)] text-[hsl(180_30%_8%)] text-xs font-semibold">
+              <div className="badge-popular">
                 <Sparkles className="w-3 h-3" />
                 Más Popular
               </div>
@@ -63,10 +60,8 @@ export default function PricingTable({ plans }: PricingTableProps) {
                   className="flex items-start gap-3 text-sm"
                 >
                   <Check 
-                    className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                      selectedPlan === plan.id 
-                        ? 'text-[hsl(175_77%_45%)]' 
-                        : 'text-white/50'
+                    className={`check-icon w-4 h-4 mt-0.5 flex-shrink-0 ${
+                      selectedPlan === plan.id ? 'is-active' : ''
                     }`} 
                   />
                   <span className="text-white/70">{feature}</span>
@@ -79,17 +74,15 @@ export default function PricingTable({ plans }: PricingTableProps) {
               href={`https://wa.me/593XXXXXXXXX?text=Hola,%20me%20interesa%20el%20plan%20${encodeURIComponent(plan.name)}%20($${plan.price})%20para%20constituir%20mi%20SAS`}
               target="_blank"
               rel="noopener noreferrer"
-              className={`
-                group inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-medium text-sm transition-all duration-200
-                ${plan.popular || selectedPlan === plan.id
-                  ? 'bg-[hsl(175_77%_45%)] text-[hsl(180_30%_8%)] hover:bg-[hsl(175_84%_55%)] hover:shadow-[0_0_30px_-5px_hsl(175_77%_45%/0.5)] hover:-translate-y-0.5'
-                  : 'bg-transparent border border-[hsl(0_0%_100%/0.1)] text-white hover:border-[hsl(175_77%_45%)] hover:text-[hsl(175_84%_55%)]'
-                }
-              `}
+              className={`btn btn-block btn-icon-right ${
+                selectedPlan === plan.id
+                  ? 'btn-primary'
+                  : 'btn-secondary'
+              }`}
               onClick={(e) => e.stopPropagation()}
             >
               Comenzar Ahora
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>

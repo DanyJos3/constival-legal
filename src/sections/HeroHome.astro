@@ -4,8 +4,10 @@
  * Solo para la página de inicio (index.astro)
  * Estilos basados en sas-facil-front
  */
+import { Image } from 'astro:assets';
 import InfiniteSlider from '../components/InfiniteSlider.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import heroBg from '../assets/hero-bg.png';
 
 // Servicios para el slider
 const services = [
@@ -56,14 +58,16 @@ const benefits = [
 ---
 
 <section class="min-h-screen flex items-center overflow-hidden relative" id="hero">
-  <!-- Background Image -->
+  <!-- Background Image (optimized by Astro) -->
   <div class="absolute inset-0 -z-20">
-    <img 
-      src="/hero-bg.png" 
-      alt="" 
-      class="w-full h-full object-cover object-center"
+    <Image 
+      src={heroBg}
+      alt=""
+      class="w-full h-full object-cover object-left lg:object-center"
       loading="eager"
-      decoding="async"
+      quality={85}
+      widths={[640, 1024, 1536, 1920]}
+      sizes="100vw"
     />
   </div>
   
@@ -85,22 +89,30 @@ const benefits = [
           href="#servicios"
           class="rounded-full mx-auto flex w-fit items-center gap-2 border border-white/20 bg-white/10 p-1 pr-3 lg:ml-0"
         >
-          <span class="bg-accent rounded-full px-2 py-1 text-sm font-medium" style="color: hsl(180 30% 8%);">
-            Nuevo
+          <span class="bg-accent rounded-full px-2 py-1 text-sm font-medium text-text-inverse">
+            Certificado
           </span>
           <span class="text-sm text-white/80">
-            +500 empresas constituidas en Ecuador
+            +50 estructuras societarias creadas con éxito
           </span>
         </a>
 
         <!-- Main Title (matching sas-facil-front sizes) -->
-        <h1 class="mt-10 text-balance text-4xl font-bold text-white md:text-5xl xl:text-7xl">
-          Constituye tu <span class="text-accent">SAS</span> en 3-5 días
-        </h1>
+        <!-- <h1 class="mt-10 text-balance text-4xl font-bold text-white md:text-5xl xl:text-7xl">
+          La base legal de las empresas que <span class="text-accent">trascienden</span>.
+        </h1> -->
         
         <!-- Subtitle -->
-        <p class="mt-8 text-white/70 text-xl">
-          Nos encargamos de todo el proceso legal para que formalices tu empresa de manera rápida, segura y 100% online.
+        <!-- <p class="mt-6 max-w-2xl text-balance text-lg text-white/70 md:text-xl lg:mx-0">
+          Somos la firma boutique especializada en derecho corporativo digital. Diseñamos la estructura jurídica que su negocio necesita para crecer con blindaje total.
+        </p> -->
+
+        <h1 class="mt-8 text-balance font-serif text-4xl font-bold leading-tight text-white md:text-6xl xl:text-7xl">
+          Tu empresa formal y 100% <span class="text-accent">legal </span> con <span class="text-accent">Constival.</span>
+        </h1>
+        
+        <p class="mt-6 max-w-2xl text-balance text-lg text-white/80 md:text-xl lg:mx-0">
+          Hacemos que la constitución de tu SAS sea rápida y segura. Protegemos tu patrimonio con estatutos a medida, sin burocracia y con asesoría experta permanente.
         </p>
 
         <!-- CTA Button -->
@@ -109,25 +121,72 @@ const benefits = [
             href="https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20constituir%20mi%20SAS"
             target="_blank"
             rel="noopener noreferrer"
-            class="cta-button inline-flex items-center gap-2 rounded-full bg-accent border border-white/20 px-6 py-3 font-medium hover:bg-accent-light transition-all duration-200"
+            class="btn btn-primary btn-lg btn-pill btn-icon-right btn-glow"
           >
-            <span class="text-lg">Crear mi SAS ahora</span>
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            Crear mi SAS ahora
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
         </div>
 
         <!-- Benefits List -->
-        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/60 lg:justify-start">
+        <!-- <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/60 lg:justify-start">
           {benefits.map((benefit) => (
             <li class="flex items-center gap-2">
               <span class="size-1.5 rounded-full bg-accent"></span>
               {benefit}
             </li>
           ))}
-        </ul>
+        </ul> -->
+        <div class="mt-12 hidden lg:flex flex-col items-center gap-4 lg:items-start">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-accent">Respaldo Institucional</p>
+          <ul class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-white/50 lg:justify-start">
+            <li class="flex items-center gap-2 border-r border-white/10 pr-8">
+              <span class="size-1.5 rounded-full bg-accent"></span>
+              <span class="text-white">100%</span> Online
+            </li>
+            <li class="flex items-center gap-2 border-r border-white/10 pr-8">
+              <span class="size-1.5 rounded-full bg-accent"></span>
+              <span class="text-white">Blindaje</span> Patrimonial
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="size-1.5 rounded-full bg-accent"></span>
+              <span class="text-white">Asesoría</span> Preventiva
+            </li>
+          </ul>
+        </div>
       </div>
+
+      <!-- <div class="relative z-10 text-center lg:text-left">
+  
+        <div class="rounded-full mx-auto flex w-fit items-center gap-2 border border-white/10 bg-white/5 p-1 pr-3 lg:ml-0">
+          <span class="bg-accent rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-dark">
+            Ecuador
+          </span>
+          <span class="text-sm font-medium text-white/90">
+            Tu socio en Derecho Societario Digital
+          </span>
+        </div>
+      
+        <h1 class="mt-8 text-balance font-serif text-4xl font-bold leading-tight text-white md:text-6xl xl:text-7xl">
+          Tu empresa formal y 100% <span class="text-accent">legal con Constival.</span>
+        </h1>
+        
+        <p class="mt-6 max-w-2xl text-balance text-lg text-white/80 md:text-xl lg:mx-0">
+          Hacemos que la constitución de tu SAS sea rápida y segura. Protegemos tu patrimonio con estatutos a medida, sin burocracia y con asesoría experta permanente.
+        </p>
+      
+        <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+          <a href="/crear-sas-ecuador" class="btn btn-primary btn-lg btn-pill shadow-xl shadow-accent/20">
+            Crear mi empresa hoy
+          </a>
+          <a href="#precios" class="text-white/80 hover:text-white flex items-center gap-2 font-semibold transition-colors py-3 px-6">
+            Ver planes y tarifas
+          </a>
+        </div>
+      </div>
+       -->
 
       <!-- Right Side - Service Cards Slider -->
       <div 
@@ -149,11 +208,6 @@ const benefits = [
 </section>
 
 <style>
-  /* CTA Button con color de texto forzado */
-  .cta-button {
-    color: hsl(180 30% 8%) !important;
-  }
-  
   /* Decorative glow animation */
   @keyframes pulse {
     0%, 100% {

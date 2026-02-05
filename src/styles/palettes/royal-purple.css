@@ -1,0 +1,60 @@
+/* ============================================
+   🎨 PALETA: ROYAL PURPLE
+   Tonos púrpura elegantes y sofisticados
+   ============================================ */
+
+:root {
+  /* Primary Colors - Deep Purple */
+  --color-primary-dark: hsl(270 40% 8%);       /* #12081F - Background/Nav */
+  --color-primary-medium: hsl(270 35% 15%);    /* #231638 - Cards */
+  --color-primary-light: hsl(270 30% 22%);     /* Lighter variant */
+
+  /* Accent Colors - Vibrant Violet */
+  --color-accent: hsl(280 75% 55%);            /* #A855F7 - Main Action */
+  --color-accent-light: hsl(280 80% 65%);      /* #C084FC - Hover */
+  --color-accent-dark: hsl(280 75% 45%);       /* #8B2FC9 - Active/Focus */
+  --color-accent-subtle: hsl(280 50% 20%);     /* Subtle background */
+
+  /* Text Colors */
+  --color-text-primary: hsl(0 0% 100%);
+  --color-text-secondary: hsl(0 0% 70%);
+  --color-text-muted: oklch(0.556 0 0);
+  --color-text-inverse: hsl(270 40% 8%);
+
+  /* Surface Colors */
+  --color-surface-dark: hsl(270 40% 6%);
+  --color-surface-card: hsl(270 35% 12%);
+  --color-surface-elevated: hsl(270 30% 18%);
+
+  /* Light Surfaces */
+  --color-surface-light: hsl(0 0% 100%);
+  --color-surface-gray: hsl(270 10% 96%);
+  --color-surface-cream: hsl(40 15% 97%);
+
+  /* Text for Light Backgrounds */
+  --color-text-dark: hsl(270 40% 10%);
+  --color-text-dark-secondary: hsl(270 15% 35%);
+  --color-text-dark-muted: hsl(270 10% 50%);
+
+  /* Borders */
+  --color-border-default: hsl(0 0% 100% / 10%);
+  --color-border-subtle: hsl(0 0% 100% / 5%);
+  --color-border-accent: hsl(280 75% 55% / 0.3);
+  --color-border-hover: hsl(0 0% 100% / 15%);
+
+  /* Accent with opacity */
+  --color-accent-10: hsl(280 75% 55% / 0.1);
+  --color-accent-15: hsl(280 75% 55% / 0.15);
+  --color-accent-20: hsl(280 75% 55% / 0.2);
+  --color-accent-25: hsl(280 75% 55% / 0.25);
+  --color-accent-30: hsl(280 75% 55% / 0.3);
+  --color-accent-40: hsl(280 75% 55% / 0.4);
+  --color-accent-50: hsl(280 75% 55% / 0.5);
+
+  /* Primary with opacity */
+  --color-primary-dark-85: hsl(270 40% 8% / 0.85);
+  --color-primary-dark-95: hsl(270 40% 8% / 0.95);
+  --color-primary-medium-80: hsl(270 35% 15% / 0.8);
+  --color-primary-medium-85: hsl(270 35% 15% / 0.85);
+  --color-primary-medium-95: hsl(270 35% 15% / 0.95);
+}

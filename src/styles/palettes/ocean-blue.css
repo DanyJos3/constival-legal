@@ -1,0 +1,60 @@
+/* ============================================
+   🎨 PALETA: OCEAN BLUE
+   Tonos azules profesionales y corporativos
+   ============================================ */
+
+:root {
+  /* Primary Colors - Deep Blue */
+  --color-primary-dark: hsl(215 50% 8%);       /* #0B1526 - Background/Nav */
+  --color-primary-medium: hsl(215 45% 15%);    /* #152442 - Cards */
+  --color-primary-light: hsl(215 40% 22%);     /* Lighter variant */
+
+  /* Accent Colors - Bright Blue */
+  --color-accent: hsl(205 85% 50%);            /* #1A9BDB - Main Action */
+  --color-accent-light: hsl(205 90% 60%);      /* #3DB4F0 - Hover */
+  --color-accent-dark: hsl(205 85% 40%);       /* #0F7AB0 - Active/Focus */
+  --color-accent-subtle: hsl(205 60% 20%);     /* Subtle background */
+
+  /* Text Colors */
+  --color-text-primary: hsl(0 0% 100%);
+  --color-text-secondary: hsl(0 0% 70%);
+  --color-text-muted: oklch(0.556 0 0);
+  --color-text-inverse: hsl(215 50% 8%);
+
+  /* Surface Colors */
+  --color-surface-dark: hsl(215 50% 6%);
+  --color-surface-card: hsl(215 45% 12%);
+  --color-surface-elevated: hsl(215 40% 18%);
+
+  /* Light Surfaces */
+  --color-surface-light: hsl(0 0% 100%);
+  --color-surface-gray: hsl(215 15% 96%);
+  --color-surface-cream: hsl(40 20% 97%);
+
+  /* Text for Light Backgrounds */
+  --color-text-dark: hsl(215 50% 10%);
+  --color-text-dark-secondary: hsl(215 20% 35%);
+  --color-text-dark-muted: hsl(215 15% 50%);
+
+  /* Borders */
+  --color-border-default: hsl(0 0% 100% / 10%);
+  --color-border-subtle: hsl(0 0% 100% / 5%);
+  --color-border-accent: hsl(205 85% 50% / 0.3);
+  --color-border-hover: hsl(0 0% 100% / 15%);
+
+  /* Accent with opacity */
+  --color-accent-10: hsl(205 85% 50% / 0.1);
+  --color-accent-15: hsl(205 85% 50% / 0.15);
+  --color-accent-20: hsl(205 85% 50% / 0.2);
+  --color-accent-25: hsl(205 85% 50% / 0.25);
+  --color-accent-30: hsl(205 85% 50% / 0.3);
+  --color-accent-40: hsl(205 85% 50% / 0.4);
+  --color-accent-50: hsl(205 85% 50% / 0.5);
+
+  /* Primary with opacity */
+  --color-primary-dark-85: hsl(215 50% 8% / 0.85);
+  --color-primary-dark-95: hsl(215 50% 8% / 0.95);
+  --color-primary-medium-80: hsl(215 45% 15% / 0.8);
+  --color-primary-medium-85: hsl(215 45% 15% / 0.85);
+  --color-primary-medium-95: hsl(215 45% 15% / 0.95);
+}

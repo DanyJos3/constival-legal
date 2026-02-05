@@ -115,7 +115,7 @@ export const sasPricingPlans: PricingPlan[] = [
     id: "plan-2",
     name: "Startup",
     accionistas: "2-3 Accionistas",
-    price: 249,
+    price: 199,
     popular: true,
     features: [
       "Todo lo del plan Emprendedor",
@@ -132,7 +132,7 @@ export const sasPricingPlans: PricingPlan[] = [
     id: "plan-3",
     name: "Crecimiento",
     accionistas: "4-6 Accionistas",
-    price: 349,
+    price: 249,
     features: [
       "Todo lo del plan Startup",
       "Pacto de accionistas completo",
@@ -147,8 +147,8 @@ export const sasPricingPlans: PricingPlan[] = [
   {
     id: "plan-4",
     name: "Enterprise",
-    accionistas: "7-10 Accionistas",
-    price: 399,
+    accionistas: "7+ Accionistas",
+    price: 349,
     features: [
       "Todo lo del plan Crecimiento",
       "Estructura compleja de gobernanza",
