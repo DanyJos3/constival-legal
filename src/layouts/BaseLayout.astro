@@ -1,0 +1,215 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/og-image.jpg',
+  type = 'website',
+  noindex = false,
+} = Astro.props;
+
+const siteName = 'Constival';
+const siteUrl = 'https://constival.com';
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+
+// JSON-LD Schema for Legal Service
+const legalServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Constival",
+  "description": "Firma legal de élite en Ecuador especializada en derecho societario y constitución de SAS.",
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.svg`,
+  "image": `${siteUrl}${ogImage}`,
+  "telephone": "+593-XXX-XXXXXX",
+  "email": "contacto@constival.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Quito",
+    "addressRegion": "Pichincha",
+    "addressCountry": "EC"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -0.1807,
+    "longitude": -78.4678
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ecuador"
+  },
+  "priceRange": "$149 - $399 + IVA",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/constival",
+    "https://www.instagram.com/constival.ec"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios Legales Societarios",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Constitución de SAS - 1 Accionista",
+          "description": "Constitución de Sociedad por Acciones Simplificada para un solo accionista"
+        },
+        "price": "149.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Constitución de SAS - 2 a 3 Accionistas",
+          "description": "Constitución de Sociedad por Acciones Simplificada para 2 a 3 accionistas"
+        },
+        "price": "249.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Constitución de SAS - 4 a 6 Accionistas",
+          "description": "Constitución de Sociedad por Acciones Simplificada para 4 a 6 accionistas"
+        },
+        "price": "349.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Constitución de SAS - 7 a 10 Accionistas",
+          "description": "Constitución de Sociedad por Acciones Simplificada para 7 a 10 accionistas"
+        },
+        "price": "399.00",
+        "priceCurrency": "USD"
+      }
+    ]
+  }
+};
+
+// Organization Schema
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Constival",
+  "legalName": "Constival Legal S.A.S.",
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.svg`,
+  "foundingDate": "2024",
+  "founders": [{
+    "@type": "Person",
+    "name": "Equipo Constival"
+  }],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Quito",
+    "addressRegion": "Pichincha",
+    "addressCountry": "Ecuador"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+593-XXX-XXXXXX",
+    "email": "contacto@constival.com",
+    "availableLanguage": ["Spanish", "English"]
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Constival" />
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Robots -->
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    )}
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="es_EC" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${siteUrl}${ogImage}`} />
+    
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="EC" />
+    <meta name="geo.placename" content="Quito, Ecuador" />
+    <meta name="geo.position" content="-0.1807;-78.4678" />
+    <meta name="ICBM" content="-0.1807, -78.4678" />
+    
+    <!-- Language -->
+    <meta http-equiv="content-language" content="es" />
+    <link rel="alternate" hreflang="es" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Preconnect to External Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" 
+      rel="stylesheet" 
+    />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0D1A1A" />
+    <meta name="msapplication-TileColor" content="#0D1A1A" />
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(legalServiceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  </head>
+  
+  <body class="min-h-screen bg-primary-dark text-text-primary antialiased">
+    <slot />
+  </body>
+</html>

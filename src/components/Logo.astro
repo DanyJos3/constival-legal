@@ -1,0 +1,66 @@
+---
+interface Props {
+  class?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', size = 'md' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'h-6',
+  md: 'h-8',
+  lg: 'h-10'
+};
+---
+
+<a 
+  href="/" 
+  class:list={[
+    "inline-flex items-center gap-2 group transition-all duration-200",
+    className
+  ]}
+  aria-label="Constival - Inicio"
+>
+  <!-- Logo Icon -->
+  <div class:list={[
+    "relative flex items-center justify-center rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors",
+    size === 'sm' ? 'w-8 h-8' : size === 'md' ? 'w-10 h-10' : 'w-12 h-12'
+  ]}>
+    <svg 
+      viewBox="0 0 40 40" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      class:list={[sizeClasses[size], "w-auto"]}
+    >
+      <!-- Abstract legal/document icon representing constitution -->
+      <path 
+        d="M10 8C10 6.89543 10.8954 6 12 6H24L30 12V32C30 33.1046 29.1046 34 28 34H12C10.8954 34 10 33.1046 10 32V8Z" 
+        fill="currentColor" 
+        class="text-accent"
+      />
+      <path 
+        d="M24 6V12H30" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        class="text-accent-dark"
+      />
+      <path 
+        d="M14 18H26M14 22H26M14 26H20" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round"
+        class="text-primary-dark"
+      />
+    </svg>
+  </div>
+  
+  <!-- Logo Text -->
+  <span class:list={[
+    "font-display font-semibold tracking-tight text-text-primary group-hover:text-accent-light transition-colors",
+    size === 'sm' ? 'text-lg' : size === 'md' ? 'text-xl' : 'text-2xl'
+  ]}>
+    Constival
+  </span>
+</a>

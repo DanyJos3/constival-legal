@@ -1,0 +1,136 @@
+---
+import Logo from '../components/Logo.astro';
+import { navigationItems, ctaButton } from '../data/services';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+  <div class="absolute inset-0 bg-primary-dark/80 backdrop-blur-xl border-b border-border-subtle opacity-0 transition-opacity duration-300" id="header-bg"></div>
+  
+  <nav class="container relative">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <Logo size="md" />
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <ul class="flex items-center gap-6">
+          {navigationItems.map((item) => (
+            <li>
+              <a 
+                href={item.href}
+                class="text-text-secondary hover:text-accent-light transition-colors duration-200 font-medium text-sm"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <a 
+          href={ctaButton.href}
+          class="btn btn-primary text-sm px-6 py-3"
+        >
+          {ctaButton.label}
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button 
+        type="button"
+        class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-primary-medium transition-colors"
+        id="mobile-menu-button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6 text-text-primary" id="menu-icon-open" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg class="w-6 h-6 text-text-primary hidden" id="menu-icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div 
+    class="md:hidden absolute top-full left-0 right-0 bg-primary-dark/95 backdrop-blur-xl border-b border-border-subtle transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300"
+    id="mobile-menu"
+  >
+    <div class="container py-6">
+      <ul class="flex flex-col gap-4 mb-6">
+        {navigationItems.map((item) => (
+          <li>
+            <a 
+              href={item.href}
+              class="block py-2 text-text-secondary hover:text-accent-light transition-colors duration-200 font-medium"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      
+      <a 
+        href={ctaButton.href}
+        class="btn btn-primary w-full justify-center"
+      >
+        {ctaButton.label}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Header scroll behavior
+  const header = document.getElementById('main-header');
+  const headerBg = document.getElementById('header-bg');
+  
+  function updateHeader() {
+    if (window.scrollY > 50) {
+      headerBg?.classList.remove('opacity-0');
+      headerBg?.classList.add('opacity-100');
+    } else {
+      headerBg?.classList.add('opacity-0');
+      headerBg?.classList.remove('opacity-100');
+    }
+  }
+  
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+  
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+  
+  let isMenuOpen = false;
+  
+  mobileMenuButton?.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+    
+    if (isMenuOpen) {
+      mobileMenu?.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      mobileMenu?.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      menuIconOpen?.classList.add('hidden');
+      menuIconClose?.classList.remove('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'true');
+    } else {
+      mobileMenu?.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      mobileMenu?.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    }
+  });
+  
+  // Close menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMenuOpen) {
+        mobileMenuButton?.click();
+      }
+    });
+  });
+</script>

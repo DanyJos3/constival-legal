@@ -1,0 +1,70 @@
+---
+import { allServices } from '../data/services';
+
+// Icon paths for each service
+const iconPaths: Record<string, string> = {
+  'building-2': 'M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18zm-4 0h16m-10-4v4m4-4v4m-4-8h.01M10 10h.01M10 6h.01M14 14h.01M14 10h.01M14 6h.01',
+  'file-edit': 'M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z',
+  'user-check': 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2m11-10a4 4 0 1 0-8 0 4 4 0 0 0 8 0zm6 1l2 2 4-4',
+  'arrow-right-left': 'M21 7H3m18 0l-4-4m4 4l-4 4M3 17h18M3 17l4-4m-4 4l4 4',
+};
+---
+
+<section class="section" id="servicios">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+        Nuestros Servicios
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-display font-semibold text-text-primary mb-4">
+        Soluciones legales para tu empresa
+      </h2>
+      <p class="text-text-secondary text-lg">
+        Desde la constitución hasta las reformas, te acompañamos en cada etapa de tu empresa.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {allServices.map((service, index) => (
+        <a 
+          href={`/${service.slug}`}
+          class="group card p-8 flex flex-col animate-fade-in hover:scale-[1.02] transition-transform"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center mb-6 transition-colors">
+            <svg 
+              class="w-7 h-7 text-accent"
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d={iconPaths[service.icon] || iconPaths['building-2']} />
+            </svg>
+          </div>
+
+          <!-- Content -->
+          <h3 class="text-xl font-display font-semibold text-text-primary mb-3 group-hover:text-accent-light transition-colors">
+            {service.title}
+          </h3>
+          <p class="text-text-secondary leading-relaxed mb-6 flex-1">
+            {service.shortDescription}
+          </p>
+
+          <!-- CTA -->
+          <div class="flex items-center gap-2 text-accent group-hover:text-accent-light transition-colors">
+            <span class="text-sm font-medium">Conocer más</span>
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
