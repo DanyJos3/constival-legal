@@ -2,17 +2,18 @@
 import { sasConstitutionSteps } from '../data/services';
 ---
 
-<section class="section bg-surface-dark" id="proceso">
+<!-- FONDO VERDE MEDIO - Contraste con secciones adyacentes -->
+<section class="section bg-primary-medium" id="proceso">
   <div class="container">
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent text-sm font-medium mb-4">
         Proceso Simple
       </span>
-      <h2 class="text-3xl sm:text-4xl font-display font-semibold text-text-primary mb-4">
+      <h2 class="text-3xl sm:text-4xl font-semibold text-white mb-4">
         8 pasos para tu SAS lista
       </h2>
-      <p class="text-text-secondary text-lg">
+      <p class="text-white/70 text-lg">
         Nosotros nos encargamos de todo. Tú solo firmas y recibes tu empresa constituida.
       </p>
     </div>
@@ -33,16 +34,16 @@ import { sasConstitutionSteps } from '../data/services';
           >
             {/* Content Card */}
             <div class={`
-              flex-1 card p-6 lg:p-8
+              flex-1 p-6 lg:p-8 rounded-xl bg-primary-dark/50 border border-white/10 backdrop-blur-sm
               ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}
             `}>
               <span class="inline-block text-xs font-semibold text-accent uppercase tracking-wider mb-2">
                 Paso {step.number}
               </span>
-              <h3 class="text-xl font-display font-semibold text-text-primary mb-2">
+              <h3 class="text-xl font-semibold text-white mb-2">
                 {step.title}
               </h3>
-              <p class="text-text-secondary text-sm leading-relaxed">
+              <p class="text-white/60 text-sm leading-relaxed">
                 {step.description}
               </p>
             </div>
@@ -50,12 +51,12 @@ import { sasConstitutionSteps } from '../data/services';
             {/* Step Number Circle */}
             <div class="
               relative z-10 flex-shrink-0 w-14 h-14 rounded-full 
-              bg-primary-medium border-2 border-accent 
+              bg-primary-dark border-2 border-accent 
               flex items-center justify-center
               shadow-[0_0_20px_-5px_hsl(175_77%_45%/0.4)]
               order-first lg:order-none
             ">
-              <span class="text-lg font-bold text-accent font-display">{step.number}</span>
+              <span class="text-lg font-bold text-accent">{step.number}</span>
             </div>
 
             {/* Spacer for alignment */}
@@ -74,8 +75,8 @@ import { sasConstitutionSteps } from '../data/services';
           </svg>
         </div>
         <div class="text-left">
-          <p class="text-text-primary font-semibold font-display">¡Tu SAS está lista!</p>
-          <p class="text-sm text-text-secondary">Recibes tu escritura, nombramientos y RUC</p>
+          <p class="text-white font-semibold">¡Tu SAS está lista!</p>
+          <p class="text-sm text-white/60">Recibes tu escritura, nombramientos y RUC</p>
         </div>
       </div>
     </div>

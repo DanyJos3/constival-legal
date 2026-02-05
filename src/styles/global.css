@@ -34,6 +34,16 @@
   --color-surface-card: hsl(180 28% 12%);     /* Card backgrounds */
   --color-surface-elevated: hsl(180 25% 18%); /* Elevated elements */
   
+  /* Light Surface Colors (for contrast sections) */
+  --color-surface-light: hsl(0 0% 100%);      /* White */
+  --color-surface-gray: hsl(180 10% 96%);     /* Very light gray with teal tint */
+  --color-surface-cream: hsl(60 20% 97%);     /* Warm off-white */
+  
+  /* Text Colors for Light Backgrounds */
+  --color-text-dark: hsl(180 30% 10%);        /* Near black with teal tint */
+  --color-text-dark-secondary: hsl(180 10% 35%); /* Dark gray for paragraphs */
+  --color-text-dark-muted: hsl(180 10% 50%);  /* Medium gray for captions */
+  
   /* Border Colors */
   --color-border-default: hsl(0 0% 100% / 10%);
   --color-border-subtle: hsl(0 0% 100% / 5%);
@@ -212,7 +222,7 @@ a:hover {
 
 .btn-primary {
   background-color: var(--color-accent);
-  color: var(--color-text-inverse);
+  color: hsl(180 30% 8%); /* Forzado oscuro para contraste */
 }
 
 .btn-primary:hover {
@@ -225,6 +235,11 @@ a:hover {
 .btn-primary:active {
   background-color: var(--color-accent-dark);
   transform: translateY(0);
+}
+
+/* CTA Button Global - Fondo turquesa con texto oscuro */
+.cta-button {
+  color: hsl(180 30% 8%) !important;
 }
 
 .btn-secondary {

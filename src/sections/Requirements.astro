@@ -12,17 +12,18 @@ const iconPaths: Record<string, string> = {
 };
 ---
 
-<section class="section bg-surface-dark" id="requisitos">
+<!-- FONDO CLARO GRIS - Contraste con Process -->
+<section class="section-gray" id="requisitos">
   <div class="container">
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+      <span class="badge-accent">
         Checklist de Documentos
       </span>
-      <h2 class="text-3xl sm:text-4xl font-display font-semibold text-text-primary mb-4">
+      <h2 class="title-dark">
         ¿Qué necesitas para empezar?
       </h2>
-      <p class="text-text-secondary text-lg">
+      <p class="subtitle-dark">
         Reúne estos documentos y estarás listo para constituir tu SAS en tiempo récord.
       </p>
     </div>
@@ -31,12 +32,12 @@ const iconPaths: Record<string, string> = {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {sasRequirements.map((req, index) => (
         <div 
-          class="group card p-6 flex gap-4 animate-fade-in"
+          class="group card-white p-6 flex gap-4 animate-fade-in"
           style={`animation-delay: ${index * 100}ms`}
         >
           <!-- Checkbox Icon -->
           <div class="flex-shrink-0">
-            <div class="w-12 h-12 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center transition-colors">
+            <div class="icon-container">
               <svg 
                 class="w-6 h-6 text-accent"
                 fill="none" 
@@ -54,16 +55,16 @@ const iconPaths: Record<string, string> = {
           <!-- Content -->
           <div class="flex-1">
             <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-lg font-semibold text-text-primary font-display">
+              <h3 class="card-title-sm">
                 {req.title}
               </h3>
               {req.required && (
-                <span class="px-2 py-0.5 text-xs font-medium bg-accent/10 text-accent rounded">
+                <span class="badge-required">
                   Requerido
                 </span>
               )}
             </div>
-            <p class="text-text-secondary text-sm leading-relaxed">
+            <p class="card-description-sm">
               {req.description}
             </p>
           </div>
@@ -73,12 +74,12 @@ const iconPaths: Record<string, string> = {
 
     <!-- Help CTA -->
     <div class="mt-12 text-center">
-      <div class="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-primary-medium border border-border-default">
+      <div class="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-primary-dark border border-white/10">
         <div class="text-left">
-          <p class="text-text-primary font-medium mb-1">
+          <p class="text-white font-medium mb-1">
             ¿No tienes firma electrónica?
           </p>
-          <p class="text-text-secondary text-sm">
+          <p class="text-white/60 text-sm">
             Te ayudamos a obtenerla. Es rápido y puedes hacerlo desde casa.
           </p>
         </div>
@@ -86,7 +87,7 @@ const iconPaths: Record<string, string> = {
           href="https://wa.me/593XXXXXXXXX?text=Hola,%20necesito%20ayuda%20para%20obtener%20mi%20firma%20electrónica"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-secondary text-sm whitespace-nowrap"
+          class="cta-button inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent font-medium rounded-lg hover:bg-accent-light transition-all duration-200 text-sm whitespace-nowrap"
         >
           Solicitar Ayuda
         </a>
@@ -94,3 +95,88 @@ const iconPaths: Record<string, string> = {
     </div>
   </div>
 </section>
+
+<style>
+  .section-gray {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+    background-color: #f3f4f6; /* gray-100 */
+  }
+  
+  .badge-accent {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    background-color: hsl(175 77% 45%);
+    color: hsl(180 30% 8%);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .badge-required {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: hsl(175 77% 45%);
+    color: hsl(180 30% 8%);
+    border-radius: 0.25rem;
+  }
+  
+  .title-dark {
+    font-size: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+    font-weight: 600;
+    color: #111827 !important; /* gray-900 forzado */
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle-dark {
+    font-size: 1.125rem;
+    color: #4b5563 !important; /* gray-600 forzado */
+    line-height: 1.625;
+  }
+  
+  .card-white {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb; /* gray-200 */
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+  }
+  
+  .card-white:hover {
+    border-color: hsl(175 77% 45%);
+    box-shadow: 0 4px 20px -5px rgba(20, 184, 166, 0.15);
+  }
+  
+  .icon-container {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    background-color: rgba(20, 184, 166, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  .card-white:hover .icon-container {
+    background-color: rgba(20, 184, 166, 0.25);
+  }
+  
+  .card-title-sm {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827 !important; /* gray-900 forzado */
+  }
+  
+  .card-description-sm {
+    font-size: 0.875rem;
+    color: #4b5563 !important; /* gray-600 forzado */
+    line-height: 1.625;
+  }
+  
+  .cta-button {
+    color: hsl(180 30% 8%) !important;
+  }
+</style>

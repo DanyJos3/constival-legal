@@ -1,6 +1,4 @@
 ---
-import Logo from '../components/Logo.astro';
-
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
@@ -42,14 +40,19 @@ const socialLinks = [
 ];
 ---
 
-<footer class="bg-surface-dark border-t border-border-subtle">
+<!-- FONDO MUY OSCURO - Footer -->
+<footer class="bg-surface-dark border-t border-white/5">
   <!-- Main Footer -->
   <div class="container section">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
       <!-- Brand Column -->
       <div class="lg:col-span-2">
-        <Logo size="lg" class="mb-6" />
-        <p class="text-text-secondary max-w-sm mb-6 leading-relaxed">
+        <a href="/" class="inline-flex items-center space-x-2 mb-6">
+          <span class="text-2xl font-bold">
+            <span class="text-accent">Consti</span><span class="text-white">val</span>
+          </span>
+        </a>
+        <p class="text-white/60 max-w-sm mb-6 leading-relaxed">
           Firma legal de élite especializada en derecho societario. 
           Constituimos tu SAS en Ecuador de forma rápida, segura y 100% digital.
         </p>
@@ -61,11 +64,11 @@ const socialLinks = [
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-medium hover:bg-accent/20 transition-colors group"
+              class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 hover:bg-accent/20 border border-white/10 hover:border-accent/30 transition-colors group"
               aria-label={social.label}
             >
               <svg 
-                class="w-5 h-5 text-text-muted group-hover:text-accent transition-colors" 
+                class="w-5 h-5 text-white/50 group-hover:text-accent transition-colors" 
                 fill="currentColor" 
                 viewBox="0 0 24 24"
                 set:html={social.icon}
@@ -77,13 +80,13 @@ const socialLinks = [
       
       <!-- Links Columns -->
       <div>
-        <h4 class="font-display font-semibold text-text-primary mb-4 text-lg">Servicios</h4>
+        <h4 class="font-semibold text-white mb-4 text-lg">Servicios</h4>
         <ul class="space-y-3">
           {footerLinks.servicios.map((link) => (
             <li>
               <a 
                 href={link.href}
-                class="text-text-secondary hover:text-accent-light transition-colors text-sm"
+                class="text-white/50 hover:text-accent transition-colors text-sm"
               >
                 {link.label}
               </a>
@@ -93,13 +96,13 @@ const socialLinks = [
       </div>
       
       <div>
-        <h4 class="font-display font-semibold text-text-primary mb-4 text-lg">Recursos</h4>
+        <h4 class="font-semibold text-white mb-4 text-lg">Recursos</h4>
         <ul class="space-y-3">
           {footerLinks.recursos.map((link) => (
             <li>
               <a 
                 href={link.href}
-                class="text-text-secondary hover:text-accent-light transition-colors text-sm"
+                class="text-white/50 hover:text-accent transition-colors text-sm"
               >
                 {link.label}
               </a>
@@ -109,13 +112,13 @@ const socialLinks = [
       </div>
       
       <div>
-        <h4 class="font-display font-semibold text-text-primary mb-4 text-lg">Legal</h4>
+        <h4 class="font-semibold text-white mb-4 text-lg">Legal</h4>
         <ul class="space-y-3">
           {footerLinks.legal.map((link) => (
             <li>
               <a 
                 href={link.href}
-                class="text-text-secondary hover:text-accent-light transition-colors text-sm"
+                class="text-white/50 hover:text-accent transition-colors text-sm"
               >
                 {link.label}
               </a>
@@ -127,19 +130,19 @@ const socialLinks = [
   </div>
   
   <!-- Bottom Bar -->
-  <div class="border-t border-border-subtle">
+  <div class="border-t border-white/5">
     <div class="container py-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-text-muted text-sm">
+        <p class="text-white/40 text-sm">
           © {currentYear} Constival. Todos los derechos reservados.
         </p>
         
-        <div class="flex items-center gap-6 text-sm text-text-muted">
+        <div class="flex items-center gap-6 text-sm text-white/40">
           <span>Quito, Ecuador</span>
           <span class="w-1 h-1 rounded-full bg-accent"></span>
           <a 
             href="mailto:contacto@constival.com"
-            class="hover:text-accent-light transition-colors"
+            class="hover:text-accent transition-colors"
           >
             contacto@constival.com
           </a>

@@ -18,7 +18,7 @@ export default function PricingTable({ plans }: PricingTableProps) {
             relative flex flex-col rounded-2xl border transition-all duration-300 cursor-pointer
             ${selectedPlan === plan.id 
               ? 'bg-[hsl(180_28%_15%)] border-[hsl(175_77%_45%/0.5)] shadow-[0_0_40px_-10px_hsl(175_77%_45%/0.4)] scale-[1.02]' 
-              : 'bg-[hsl(180_28%_12%)] border-[hsl(180_20%_20%)] hover:border-[hsl(180_20%_30%)]'
+              : 'bg-[hsl(180_28%_12%)] border-[hsl(0_0%_100%/0.1)] hover:border-[hsl(0_0%_100%/0.15)]'
             }
             ${plan.popular ? 'xl:-mt-4 xl:mb-4' : ''}
           `}
@@ -38,21 +38,21 @@ export default function PricingTable({ plans }: PricingTableProps) {
           <div className="p-6 flex-1 flex flex-col">
             {/* Plan Header */}
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-[hsl(0_0%_98%)] mb-1 font-['Playfair_Display',Georgia,serif]">
+              <h3 className="text-lg font-semibold text-white mb-1">
                 {plan.name}
               </h3>
-              <p className="text-sm text-[oklch(0.75_0_0)]">{plan.accionistas}</p>
+              <p className="text-sm text-white/60">{plan.accionistas}</p>
             </div>
 
             {/* Price */}
             <div className="mb-6">
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-[hsl(0_0%_98%)] font-['Playfair_Display',Georgia,serif]">
+                <span className="text-4xl font-bold text-white">
                   ${plan.price}
                 </span>
-                <span className="text-[oklch(0.556_0_0)] text-sm">+ IVA</span>
+                <span className="text-white/50 text-sm">+ IVA</span>
               </div>
-              <p className="text-xs text-[oklch(0.556_0_0)] mt-1">Pago único</p>
+              <p className="text-xs text-white/40 mt-1">Pago único</p>
             </div>
 
             {/* Features */}
@@ -66,10 +66,10 @@ export default function PricingTable({ plans }: PricingTableProps) {
                     className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
                       selectedPlan === plan.id 
                         ? 'text-[hsl(175_77%_45%)]' 
-                        : 'text-[oklch(0.556_0_0)]'
+                        : 'text-white/50'
                     }`} 
                   />
-                  <span className="text-[oklch(0.75_0_0)]">{feature}</span>
+                  <span className="text-white/70">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -83,7 +83,7 @@ export default function PricingTable({ plans }: PricingTableProps) {
                 group inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-medium text-sm transition-all duration-200
                 ${plan.popular || selectedPlan === plan.id
                   ? 'bg-[hsl(175_77%_45%)] text-[hsl(180_30%_8%)] hover:bg-[hsl(175_84%_55%)] hover:shadow-[0_0_30px_-5px_hsl(175_77%_45%/0.5)] hover:-translate-y-0.5'
-                  : 'bg-transparent border border-[hsl(180_20%_20%)] text-[hsl(0_0%_98%)] hover:border-[hsl(175_77%_45%)] hover:text-[hsl(175_84%_55%)]'
+                  : 'bg-transparent border border-[hsl(0_0%_100%/0.1)] text-white hover:border-[hsl(175_77%_45%)] hover:text-[hsl(175_84%_55%)]'
                 }
               `}
               onClick={(e) => e.stopPropagation()}

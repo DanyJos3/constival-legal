@@ -62,7 +62,7 @@ import { navigationItems, ctaButton } from '../data/services';
           <div class="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6 nav-divider transition-colors duration-300">
             <a 
               href={ctaButton.href}
-              class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-accent text-primary-dark font-medium rounded-lg hover:bg-accent-light transition-all duration-200 text-sm"
+              class="header-cta-btn inline-flex items-center justify-center gap-2 px-4 py-2 bg-accent font-medium rounded-lg hover:bg-accent-light transition-all duration-200 text-sm"
             >
               <span>Hablar con un asesor</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -101,6 +101,15 @@ import { navigationItems, ctaButton } from '../data/services';
   
   #main-nav[data-scrolled="false"] .nav-divider {
     border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Header CTA Button - Texto oscuro forzado */
+  .header-cta-btn {
+    color: #0d1a1a !important;
+  }
+  
+  .header-cta-btn svg {
+    color: #0d1a1a !important;
   }
   
   /* Scrolled state: solid background */
