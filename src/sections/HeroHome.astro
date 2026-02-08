@@ -76,7 +76,7 @@ const benefits = [
   <div class="absolute inset-0 bg-linear-to-b from-primary-dark/90 to-primary-medium/70 -z-10"></div>
   
   <!-- Decorative Glow -->
-  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+  <!-- <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div> -->
 
   <div class="relative mx-auto w-full max-w-7xl px-6 py-20">
     <!-- Grid Layout: 1 col mobile, 2 cols desktop -->
@@ -116,16 +116,19 @@ const benefits = [
           Hacemos que la constitución de tu SAS sea rápida y segura. Protegemos tu patrimonio con estatutos a medida, sin burocracia y con asesoría experta permanente.
         </p>
 
+
+        <!-- // animate-bounce -->
         <!-- CTA Button -->
-        <div class="mx-auto my-10 max-w-sm lg:my-12 lg:ml-0 lg:mr-auto animate-bounce">
+        <div class="mx-auto my-10 max-w-sm lg:my-12 lg:ml-0 lg:mr-auto">
           <!-- href="https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20constituir%20mi%20SAS" -->
           <!-- target="_blank" -->
           <!-- rel="noopener noreferrer" -->
+          <!-- class="btn btn-primary btn-lg btn-pill btn-icon-right btn-glow" -->
           <a 
             href={ctaButton.href}
-            class="btn btn-primary btn-lg btn-pill btn-icon-right btn-glow"
+            class="btn btn-primary"
           >
-            Crear mi SAS ahora
+            Hablar con un asesor
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
