@@ -1,0 +1,54 @@
+/* ============================================
+   🎨 PALETA: NEÓN TECH (Basada en tus Tokens)
+   Tonos azul profundo con acentos neón AI
+   ============================================ */
+
+:root {
+  /* Primary Colors - Deep Navy Tech */
+  --color-primary-dark: hsl(222 32% 10%);      /* #111621 - Background principal */
+  --color-primary-medium: hsl(225 60% 17%);    /* #111F45 - Cards y Sidebar */
+  --color-primary-light: hsl(221 58% 33%);     /* #234184 - Variante clara */
+
+  /* Accent Colors - Neon Green & Cyan */
+  --color-accent: hsl(162 100% 50%);           /* #00FFB2 - Acción Principal (Apply Now) */
+  --color-accent-light: hsl(185 100% 50%);     /* #00EAFF - Hover/Gradiente */
+  --color-accent-dark: hsl(221 95% 34%);       /* #033BAC - Enlaces/Focus */
+  --color-accent-subtle: hsl(162 100% 50% / 15%); /* Fondo sutil de botones/badges */
+
+  /* Text Colors (Dark Mode Optimized) */
+  --color-text-primary: hsl(0 0% 100%);        /* #FFFFFF - Títulos */
+  --color-text-secondary: hsl(212 33% 95%);    /* #ECF1F7 - Cuerpo de texto */
+  --color-text-muted: hsl(225 15% 58%);        /* #838BA3 - Texto desactivado/ayuda */
+  --color-text-inverse: hsl(222 32% 10%);      /* #111621 - Texto sobre botones neón */
+
+  /* Surface Colors */
+  --color-surface-dark: hsl(222 32% 7%);       /* Fondo ultra oscuro */
+  --color-surface-card: hsl(225 60% 17%);      /* Cards (Token 2b13d1c1) */
+  --color-surface-elevated: hsl(225 30% 25%);  /* Elementos flotantes */
+
+  /* Light Surfaces (Para secciones claras o admin) */
+  --color-surface-light: hsl(0 0% 100%);       /* #FFFFFF */
+  --color-surface-gray: hsl(210 40% 97%);      /* #F3F7FB - Background light */
+  --color-surface-accent-soft: hsl(162 100% 90%); /* #C9FFEF - Success light */
+
+  /* Text for Light Backgrounds */
+  --color-text-dark: hsl(223 25% 24%);         /* #2D354C - Títulos en claro */
+  --color-text-dark-secondary: hsl(227 15% 48%); /* #68708C - Cuerpo en claro */
+  --color-text-dark-muted: hsl(226 18% 68%);   /* #9CA3BD - Muted en claro */
+
+  /* Borders */
+  --color-border-default: hsl(227 21% 77% / 20%); /* #B9BED1 con transparencia */
+  --color-border-subtle: hsl(0 0% 100% / 10%);
+  --color-border-accent: hsl(162 100% 50% / 30%); /* Borde neón suave */
+  --color-border-hover: hsl(162 100% 50% / 60%);
+
+  /* Accent with opacity (Util para efectos de brillo/glow) */
+  --color-accent-10: hsl(162 100% 50% / 0.1);
+  --color-accent-20: hsl(162 100% 50% / 0.2);
+  --color-accent-30: hsl(162 100% 50% / 0.3);
+  --color-accent-50: hsl(162 100% 50% / 0.5);
+
+  /* Primary with opacity */
+  --color-primary-dark-85: hsl(222 32% 10% / 0.85);
+  --color-primary-medium-95: hsl(225 60% 17% / 0.95);
+}

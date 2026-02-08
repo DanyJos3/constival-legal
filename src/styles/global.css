@@ -8,7 +8,7 @@
    - "./palettes/ocean-blue.css"   (Azul corporativo)
    - "./palettes/royal-purple.css" (Púrpura elegante)
    ============================================ */
-@import "./palettes/esmeralda.css";
+@import "./palettes/anyoneia.css";
 
 /* ============================================
    CONSTIVAL - Design System Configuration
@@ -23,32 +23,32 @@
   --color-primary-dark: var(--color-primary-dark);
   --color-primary-medium: var(--color-primary-medium);
   --color-primary-light: var(--color-primary-light);
-  
+
   --color-accent: var(--color-accent);
   --color-accent-light: var(--color-accent-light);
   --color-accent-dark: var(--color-accent-dark);
   --color-accent-subtle: var(--color-accent-subtle);
-  
+
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
   --color-text-muted: var(--color-text-muted);
   --color-text-inverse: var(--color-text-inverse);
-  
+
   --color-surface-dark: var(--color-surface-dark);
   --color-surface-card: var(--color-surface-card);
   --color-surface-elevated: var(--color-surface-elevated);
   --color-surface-light: var(--color-surface-light);
   --color-surface-gray: var(--color-surface-gray);
-  
+
   --color-text-dark: var(--color-text-dark);
   --color-text-dark-secondary: var(--color-text-dark-secondary);
   --color-text-dark-muted: var(--color-text-dark-muted);
-  
+
   --color-border-default: var(--color-border-default);
   --color-border-subtle: var(--color-border-subtle);
   --color-border-accent: var(--color-border-accent);
   --color-border-hover: var(--color-border-hover);
-  
+
   --color-accent-10: var(--color-accent-10);
   --color-accent-15: var(--color-accent-15);
   --color-accent-20: var(--color-accent-20);
@@ -56,7 +56,7 @@
   --color-accent-30: var(--color-accent-30);
   --color-accent-40: var(--color-accent-40);
   --color-accent-50: var(--color-accent-50);
-  
+
   --color-primary-dark-85: var(--color-primary-dark-85);
   --color-primary-dark-95: var(--color-primary-dark-95);
   --color-primary-medium-80: var(--color-primary-medium-80);
@@ -67,7 +67,7 @@
   --font-family-display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
   --font-family-body: 'Outfit', ui-sans-serif, system-ui, sans-serif;
   --font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-  
+
   /* Border Radius (matching sas-facil-front) */
   --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);
@@ -78,7 +78,7 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
   --radius-full: 9999px;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.25);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
@@ -90,21 +90,21 @@
   --shadow-glow-md: 0 0 30px -5px var(--color-accent-50);
   --shadow-glow-card: 0 8px 30px -5px var(--color-accent-15);
   --shadow-glow-card-hover: 0 4px 20px -5px var(--color-accent-15);
-  
+
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Container */
   --container-max: 1280px;
   --container-prose: 65ch;
-  
+
   /* Spacing Scale */
   --spacing-section: clamp(4rem, 3rem + 5vw, 8rem);
   --spacing-component: clamp(2rem, 1.5rem + 2.5vw, 4rem);
-  
+
   /* Z-Index Scale */
   --z-dropdown: 100;
   --z-sticky: 200;
@@ -135,7 +135,12 @@ body {
 }
 
 /* Typography Defaults */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-family-display);
   font-weight: 700;
   line-height: 1.1;
@@ -238,9 +243,9 @@ a:hover {
   border: 1px solid transparent;
   position: relative;
   overflow: hidden;
-  
+
   /* Transiciones suaves */
-  transition: 
+  transition:
     background-color 0.2s ease,
     color 0.2s ease,
     border-color 0.2s ease,
@@ -271,14 +276,16 @@ a:hover {
 
 .btn-primary:hover {
   background-color: var(--color-accent-light);
-  color: var(--color-text-inverse); /* Mantener texto oscuro */
+  color: var(--color-text-inverse);
+  /* Mantener texto oscuro */
   transform: translateY(-1px);
   box-shadow: var(--shadow-glow-md);
 }
 
 .btn-primary:active {
   background-color: var(--color-accent-dark);
-  color: var(--color-text-inverse); /* Mantener texto oscuro */
+  color: var(--color-text-inverse);
+  /* Mantener texto oscuro */
   transform: translateY(0);
   box-shadow: none;
 }
@@ -502,9 +509,12 @@ a:hover {
 }
 
 @keyframes btn-glow-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4);
   }
+
   50% {
     box-shadow: 0 0 0 8px rgba(20, 184, 166, 0);
   }
@@ -518,12 +528,10 @@ a:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
   transition: left 0.5s ease;
 }
 
@@ -665,6 +673,7 @@ a:hover {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -676,6 +685,7 @@ a:hover {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -683,9 +693,12 @@ a:hover {
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: var(--shadow-glow-sm);
   }
+
   50% {
     box-shadow: var(--shadow-glow-md);
   }
@@ -696,6 +709,7 @@ a:hover {
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -715,20 +729,32 @@ a:hover {
 }
 
 /* Staggered Animation Delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
 
 /* ============================================
    Gradientes personalizados
    ============================================ */
 .bg-hero-gradient {
-  background: linear-gradient(
-    300deg,
-    var(--color-primary-dark) 0%,
-    var(--color-primary-medium) 50%,
-    var(--color-primary-dark) 100%
-  );
+  background: linear-gradient(300deg,
+      var(--color-primary-dark) 0%,
+      var(--color-primary-medium) 50%,
+      var(--color-primary-dark) 100%);
 }
