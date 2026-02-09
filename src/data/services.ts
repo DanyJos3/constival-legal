@@ -335,8 +335,15 @@ export const navigationItems: NavItem[] = [
   { label: "FAQ", href: "/crear-sas-ecuador#faq" },
 ];
 
-export const ctaButton: NavItem = {
+export const ctaButtonSAS: NavItem = {
   label: "Iniciar SAS",
   href: "/crear-sas-ecuador",
+  isButton: true
+};
+
+
+export const ctaButtonWhatssap: NavItem = {
+  label: "Ir a whatssap",
+  href: "https://wa.me/5939?text=Hola,%20quiero%20constituir%20mi%20SAS",
   isButton: true
 };

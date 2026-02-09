@@ -90,7 +90,7 @@
   --shadow-glow-md: 0 0 30px -5px var(--color-accent-50);
   --shadow-glow-card: 0 8px 30px -5px var(--color-accent-15);
   --shadow-glow-card-hover: 0 4px 20px -5px var(--color-accent-15);
-  --shadow-glow-button: var(--color-accent) 0 0 12px 2px; 
+  --shadow-glow-button: var(--color-accent-light) 0 0 12px 2px; 
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -194,7 +194,9 @@ a:hover {
 
 /* Gradient Text */
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent), var(--color-accent-dark));
+  /* background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent), var(--color-accent-dark)); */
+  background: linear-gradient(270deg, var(--color-accent-light), var(--color-accent));
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -271,6 +273,7 @@ a:hover {
    ========================================== */
 .btn-primary {
   background-color: var(--color-accent);
+  /* background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light)); */
   color: var(--color-text-inverse);
   border-color: transparent;
 }

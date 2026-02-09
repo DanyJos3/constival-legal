@@ -8,7 +8,8 @@ import { Image } from 'astro:assets';
 import InfiniteSlider from '../components/InfiniteSlider.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import heroBg from '../assets/hero-bg.png';
-import { ctaButton } from '../data/services';
+import { WHATSAPP_HREF } from '../data/constants';
+
 
 // Servicios para el slider
 const services = [
@@ -109,24 +110,23 @@ const benefits = [
         </p> -->
 
         <h1 class="mt-8 text-balance font-serif text-4xl font-bold leading-tight text-white md:text-6xl xl:text-7xl">
-          Tu empresa formal y 100% <span class="text-gradient">legal </span> con <span class=" text-gradient">Constival.</span>
+          Tu empresa <span class="text-gradient">formal</span> y 100% <span class="text-gradient">legal </span> con <span class=" text-gradient">Constival.</span>
         </h1>
         
         <p class="mt-6 max-w-2xl text-balance text-lg text-white/80 md:text-xl lg:mx-0">
-          Hacemos que la constitución de tu SAS sea rápida y segura. Protegemos tu patrimonio con estatutos a medida, sin burocracia y con asesoría experta permanente.
+          Hacemos que la constitución de tu empresa sea rápida y segura. Protegemos tu patrimonio con estatutos a medida, sin burocracia y con asesoría experta permanente.
         </p>
 
 
         <!-- // animate-bounce -->
         <!-- CTA Button -->
         <div class="mx-auto my-10 max-w-sm lg:my-12 lg:ml-0 lg:mr-auto">
-          <!-- href="https://wa.me/593XXXXXXXXX?text=Hola,%20quiero%20constituir%20mi%20SAS" -->
-          <!-- target="_blank" -->
-          <!-- rel="noopener noreferrer" -->
-          <!-- class="btn btn-primary btn-lg btn-pill btn-icon-right btn-glow" -->
+         
           <a 
-            href={ctaButton.href}
-            class="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+            class="btn btn-primary "
+            href={WHATSAPP_HREF} 
           >
             Hablar con un asesor
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
