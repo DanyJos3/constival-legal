@@ -26,6 +26,7 @@ export interface Service {
   icon: string;
   steps?: ServiceStep[];
   pricing?: PricingPlan[];
+  recomended?: boolean;
 }
 
 export interface Requirement {
@@ -275,8 +276,19 @@ export const allServices: Service[] = [
     id: "constitucion-sas",
     title: "Constitución de SAS",
     slug: "crear-sas-ecuador",
-    shortDescription: "Constituye tu Sociedad por Acciones Simplificada en 3-5 días de forma 100% digital.",
+    shortDescription: "Constituye tu Sociedad por Acciones Simplificada en 2-5 días de forma 100% digital.",
     longDescription: "La SAS es la estructura societaria más flexible y moderna del Ecuador. Permite un solo accionista, no requiere capital mínimo y se constituye completamente en línea.",
+    icon: "building-2",
+    steps: sasConstitutionSteps,
+    pricing: sasPricingPlans,
+    recomended: true
+  },
+   {
+    id: "disolucion-sas",
+    title: "Disolución de SAS",
+     slug: "crear-sas-ecuador",
+    shortDescription: "Disuelve tu Sociedad por Acciones Simplificada de forma legal y segura.",
+    longDescription: "Gestionamos todo el proceso de disolución de tu SAS, incluyendo la liquidación de activos, cancelación de obligaciones fiscales y registro ante la Superintendencia.",
     icon: "building-2",
     steps: sasConstitutionSteps,
     pricing: sasPricingPlans
@@ -284,7 +296,7 @@ export const allServices: Service[] = [
   {
     id: "reformas-estatutarias",
     title: "Reformas Estatutarias",
-    slug: "reformas-estatutos",
+   slug: "crear-sas-ecuador",
     shortDescription: "Modifica los estatutos de tu empresa: objeto social, domicilio, capital y más.",
     longDescription: "Actualizamos los estatutos de tu compañía para reflejar cambios en el objeto social, domicilio, aumento de capital, cambio de denominación y cualquier otra modificación legal.",
     icon: "file-edit",
@@ -298,7 +310,7 @@ export const allServices: Service[] = [
   {
     id: "nombramientos",
     title: "Nombramientos",
-    slug: "nombramientos",
+    slug: "crear-sas-ecuador",
     shortDescription: "Gestiona renovaciones, cambios y renuncias de administradores de tu compañía.",
     longDescription: "Tramitamos todo tipo de nombramientos societarios: renovación de gerente, cambio de representante legal, renuncia de administradores e inscripción de nuevos directivos.",
     icon: "user-check",
@@ -311,10 +323,19 @@ export const allServices: Service[] = [
   {
     id: "transferencia-acciones",
     title: "Transferencia de Acciones",
-    slug: "transferencia-acciones",
+    slug: "crear-sas-ecuador",
     shortDescription: "Compra, venta o cesión de acciones entre accionistas o a terceros.",
     longDescription: "Facilitamos la transferencia de participaciones societarias con todos los requisitos legales, incluyendo valoración, contratos de compraventa y actualización del libro de accionistas.",
     icon: "arrow-right-left"
+  }
+  ,
+  {
+    id: "registro-marca",
+    title: "Registro de Marca",
+    slug: "crear-sas-ecuador",
+    shortDescription: "Protege tu marca registrando su nombre o logotipo ante el SENADI.",
+    longDescription: "Gestionamos todo el proceso de registro de marcas, desde la búsqueda de disponibilidad hasta la inscripción ante la autoridad competente.",
+    icon: "file-edit"
   }
 ];
 
